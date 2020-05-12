@@ -51,7 +51,7 @@ function mfnch_textdomain() {
 add_action('woocommerce_after_order_notes', 'customise_checkout_field');
 function customise_checkout_field($checkout)
 {
-//echo '<div id="customise_checkout_field"><h2>' . __('Heading') . '</h2>';
+echo '<div id="customise_checkout_field"><h2>' . __('') . '</h2>';
 woocommerce_form_field('customised_field_name', array(
 'type' => 'text',
 'class' => array(
@@ -71,7 +71,6 @@ unset( $fields['billing']['billing_phone'] );
 global $product;
 $product = wc_get_product( $product_id );
 $attribute_ID = current(WC()->cart->get_cart())['data']->get_id();
-echo $attribute_ID;
 	if ( $attribute_ID == 141 || $attribute_ID == 180 || $attribute_ID == 183 || $attribute_ID == 186 ) {
 		unset( $fields['billing']['billing_country'] );
 		unset( $fields['billing']['billing_address_1'] );

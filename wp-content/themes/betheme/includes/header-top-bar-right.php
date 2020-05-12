@@ -25,13 +25,18 @@ if( has_nav_menu( 'lang-menu' ) ){
 if( $has_cart || $header_search || $header_action_link || $wpml_icon ){
 	echo '<div class="top_bar_right">';
 		echo '<div class="top_bar_right_wrapper">';
-global $current_user;
 
+if ( is_user_logged_in() ) {
+    global $current_user;
 $current_user = wp_get_current_user();
-
-echo '<div id="points">Points <span>';
+echo '<div id="points"><i class="icon-star"></i><span>';
 $value = the_field('points', 'user_' . $current_user->ID);
-echo '</spam></div>';
+echo '</span></div>';
+} else {
+    echo '<div id="points"><a href="http://localhost/bookflight.com/my-account/"><i class="icon-user"></i> Login</a></div>';
+}
+
+
 
 
 
